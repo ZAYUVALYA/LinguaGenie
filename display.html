@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinguaGenie - Translator</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+    }
+    .container {
+      margin-top: 30px;
+    }
+    .translate-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    textarea {
+      resize: none;
+    }
+    .btn-swap {
+      cursor: pointer;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .select-lang {
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .select-lang {
+        width: 100%;
+      }
+    }
+    /* Styling for loading */
+    .loading-container {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      height: 40px;
+    }
+    .loading-ball {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #007bff;
+      border-radius: 50%;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+    .loading-ball:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .loading-ball:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    .loading-ball:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>LinguaGenie</h1>
+      <p>Translate your text effortlessly</p>
+    </div>
+    <div class="translate-box">
+      <div class="row mb-3">
+        <div class="col-md-5">
+          <select id="source-lang" class="form-control select-lang">
+            <option value="English">English</option>
+            <option value="Indonesian" selected>Indonesian</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-center justify-content-center">
+          <button id="swap-btn" class="btn btn-outline-secondary btn-swap">&harr;</button>
+        </div>
+        <div class="col-md-5">
+          <select id="target-lang" class="form-control select-lang">
+            <option value="Indonesian">Indonesian</option>
+            <option value="English" selected>English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+          </select>
+        </div>
+      </div>
+      <!-- Input and output -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="inputText">Input Text</label>
+          <textarea id="inputText" class="form-control" rows="8" placeholder="Enter text here..."></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="outputText">Translated Text</label>
+          <!-- Output text area -->
+          <textarea id="outputText" class="form-control" rows="8" placeholder="Translation will appear here..." readonly></textarea>
+          <!-- Loading Container -->
+          <div id="loading" class="loading-container">
+            <div class="loading-ball"></div>
+            <div class="loading-ball"></div>
+            <div class="loading-ball"></div>
+          </div>
+          <button id="copy-btn" class="btn btn-sm btn-outline-primary mt-2">Copy</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center">
+          <button id="translate-btn" class="btn btn-primary">Translate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.getElementById('swap-btn').addEventListener('click', function() {
+      var sourceSelect = document.getElementById('source-lang');
+      var targetSelect = document.getElementById('target-lang');
+      var temp = sourceSelect.value;
+      sourceSelect.value = targetSelect.value;
+      targetSelect.value = temp;
+    });
+    
+    document.getElementById('copy-btn').addEventListener('click', function() {
+      var outputText = document.getElementById('outputText');
+      outputText.select();
+      document.execCommand('copy');
+    });
+    
+    document.getElementById('translate-btn').addEventListener('click', function() {
+      var inputText = document.getElementById('inputText').value;
+      var sourceLang = document.getElementById('source-lang').value;
+      var targetLang = document.getElementById('target-lang').value;
+      
+      document.getElementById('outputText').style.display = 'none';
+      document.getElementById('loading').style.display = 'flex';
+      
+      if (window.pywebview) {
+        window.pywebview.api.translate(inputText, sourceLang, targetLang).then(function(result) {
+
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('outputText').style.display = 'block';
+          document.getElementById('outputText').value = result;
+        }).catch(function(error) {
+          console.error(error);
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('outputText').style.display = 'block';
+          document.getElementById('outputText').value = "Error during translation.";
+        });
+      } else {
+        console.log("pywebview API not found.");
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('outputText').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
