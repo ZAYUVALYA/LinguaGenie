@@ -1,0 +1,5 @@
+requests
+PyQt6
+pyttsx3
+SpeechRecognition
+cryptography
