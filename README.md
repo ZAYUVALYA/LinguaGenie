@@ -30,7 +30,7 @@ LinguaGenie is structured into two primary layers:
 3. `main.py` constructs the API query using the following format:
 
    ```
-   https://api.freegpt4.ddns.net/?text=Translate the following text from {source_language} to {target_language}, ensuring perfect grammar, context, and meaning. Source text: {user_input}
+   https://api.freegpt4.ddns.net/?text={encoded_prompt}
    ```
 4. The response from the API is extracted and returned to `app.js`.
 5. The translated text is displayed in the output box, replacing the loading animation.
