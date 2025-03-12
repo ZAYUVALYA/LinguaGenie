@@ -78,5 +78,5 @@ This project is licensed under the **GNU General Public License v3 (GPLv3)**. Th
 - You are free to use, modify, and distribute this software.
 - Any modified versions must also be open-source under the same license.
 
-For full details, see the [LICENSE](https://github.com/ZAYUVALYA/LinguaGenie/LICENSE) file.
+For full details, see the [LICENSE](https://github.com/ZAYUVALYA/LinguaGenie/blob/main/LICENSE) file.
 
