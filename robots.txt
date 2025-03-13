@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+Sitemap: https://zayuvalya.github.io/LinguaGenie/sitemap.xml
