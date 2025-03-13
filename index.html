@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <div class="logo">LinguaGenie</div>
+        <div class="logo"><img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/LinguaGenie.png" alt=""></div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -39,13 +39,13 @@
             <div class="about-text">
                 <p>LinguaGenie uses state-of-the-art neural networks to provide seamless translation between languages.</p>
                 <ul class="features">
-                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Real-time voice translation</li>
-                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Text-to-speech capabilities</li>
-                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Offline mode support</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>LLM Integration</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Editable Output</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Natural / Human Like Language</li>
                 </ul>
             </div>
             <div class="about-image">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCHi18uXFtRb1_q7pQIVxYlwqvhVzCzZ4PQ&s" alt="AI Translation">
+                <img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/LinguaGenie.png" alt="AI Translation">
             </div>
         </div>
     </section>
@@ -53,7 +53,59 @@
     <section id="install">
         <h2>Installation Guide</h2>
         <div class="installation-steps">
-            <!-- Add installation steps here -->
+            <div class="platform">
+                <h3>For Windows Users</h3>
+                <p>Follow these steps to install LinguaGenie on your Windows machine:</p>
+                <ol>
+                    <li>
+                        <strong>Step 1: Allow Script Execution</strong>
+                        <p>Open PowerShell as Administrator and run the following command to allow script execution:</p>
+                        <pre><code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+                    </li>
+                    <li>
+                        <strong>Step 2: Download the Installer Script</strong>
+                        <p>Run the following command to download the installation script:</p>
+                        <pre><code>Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/main/INSTALL/install.ps1" -OutFile "$env:TEMP\install.ps1"</code></pre>
+                    </li>
+                    <li>
+                        <strong>Step 3: Run the Installer</strong>
+                        <p>Execute the downloaded script to start the installation process:</p>
+                        <pre><code>& "$env:TEMP\install.ps1"</code></pre>
+                    </li>
+                </ol>
+            </div>
+    
+            <div class="platform">
+                <h3>For Linux Users</h3>
+                <p>Follow these steps to install LinguaGenie on your Linux machine:</p>
+                <ol>
+                    <li>
+                        <strong>Step 1: Download the Installer Script</strong>
+                        <p>Use the following command to download the installation script:</p>
+                        <pre><code>wget -O "$HOME/install.sh" "https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/main/INSTALL/install.sh"</code></pre>
+                    </li>
+                    <li>
+                        <strong>Step 2: Make the Script Executable</strong>
+                        <p>Grant execution permissions to the script by running:</p>
+                        <pre><code>chmod +x "$HOME/install.sh"</code></pre>
+                    </li>
+                    <li>
+                        <strong>Step 3: Run the Installer</strong>
+                        <p>Execute the script to begin the installation:</p>
+                        <pre><code>bash "$HOME/install.sh"</code></pre>
+                    </li>
+                </ol>
+            </div>
+    
+            <div class="note">
+                <h4>Important Notes:</h4>
+                <ul>
+                    <li>Ensure you have a stable internet connection during the installation process.</li>
+                    <li>For Windows, running PowerShell as Administrator is required to execute the script.</li>
+                    <li>For Linux, ensure you have <code>wget</code> installed. If not, install it using your package manager (e.g., <code>sudo apt install wget</code>).</li>
+                    <li>If you encounter any issues, please refer to the <a href="#report">Report a Bug</a> section.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -72,45 +124,23 @@
 
     <section id="donate">
         <h2>Support Our Development</h2>
-        <div class="donation-options">
-            <!-- Add donation options here -->
-        </div>
+        <div align="center">
+            <a href="http://paypal.me/VIVALDIMAZZA" target="_blank" style='margin-right: 10;'>
+              <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/paypal/default.svg" width="52" height="40" alt="paypal logo"  />
+            </a>
+            <a href="http://lynk.id/milyohiro/s/DaJ072Z" target="_blank" style='margin-left: 10;'>
+              <img src="https://home.oxygen.id/assets/images/info-pembayaran/qris-logo.png" width="64" height="40" alt="LYNK ID QRIS logo"  />
+            </a>
+          </div>
     </section>
 
     <footer>
         <div class="social-links">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/ZAYUVALYA/LinguaGenie"><i class="fab fa-github"></i></a>
         </div>
-        <p>© 2023 LinguaGenie. All rights reserved.</p>
+        <p>© 2025 ZAYUVALYA. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Hamburger menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked (for mobile)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
