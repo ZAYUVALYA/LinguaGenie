@@ -1,82 +1,95 @@
-# LinguaGenie
+### **README.md**  
 
-LinguaGenie is a lightweight, standalone translation application that leverages an API-based approach to provide high-quality translations using OpenAI's GPT-3.5 Turbo. Unlike traditional translation applications, LinguaGenie does not use a built-in LLM but instead makes API calls to Free-GPT4-WEB-API.
+# **LinguaGenie**  
+<div align="center">
+    <img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/LinguaGenie.png" width="200" alt="LinguaGenie Logo">
+</div>  
 
-This project is designed to offer a seamless translation experience, where the user interface is entirely driven by an HTML frontend (**display.html**), while the backend logic is handled by a Python script (**main.py**).
+**LinguaGenie** is a smart and interactive language translation tool designed to provide accurate translations with an **editable output**, allowing users to fine-tune translations based on personal preferences.  
 
-## Repository Reference
-LinguaGenie utilizes the public API from the following repository:
-[API GPT DDNS](https://github.com/aledipa/Free-GPT4-WEB-API)
+🚀 **Current Status:** Still under development!  
+📌 **Latest Features:** Editable translation output, synonym selection, and improved UI/UX.  
 
-## Project Structure
-LinguaGenie is structured into two primary layers:
-1. **Main Layer (User Interface)**
-   - `display.html`: The front-end UI, acting as a browser-based application.
-   - `styles.css`: Defines the theme, layout, and loading animations.
-   - `app.js`: Handles all interactions, API calls, and UI logic.
+---
 
-2. **Core Layer (Processing and API Handling)**
-   - `main.py`: The Python backend that handles:
-     - Serving `display.html` as the main UI.
-     - Processing user input and forming API requests.
-     - Fetching translations from the Free-GPT4-WEB-API.
-     - Encrypting and decrypting translation history.
-   - `history.json`: Stores user translation history in an encrypted format.
-   - `requirements.txt`: Lists required Python dependencies.
+## **🌟 Features**   
+✔️ **Editable Output** – Click on translated words to modify them easily.  
+✔️ **Synonym Suggestions** – Choose alternative words from a list of synonyms.  
+✔️ **Minimalist UI** – Clean and user-friendly interface for easy navigation.  
+✔️ **Cross-Platform Support** – Works on both **Windows** and **Linux**.  
+✔️ **Lightweight & Fast** – Built for efficiency without compromising quality.  
 
-## Workflow and Logic
-1. The user enters text into the input box and selects the source and target languages.
-2. Upon clicking the **Translate** button, `script.js` sends the input text and language details to `main.py`.
-3. `main.py` constructs the API query using the following format:
+---
 
+## **🖼️ Screenshots**  
+### **Main Interface**  
+<div align="center">
+    <img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/1.png" width="700" alt="LinguaGenie Main Interface">
+</div>  
+
+### **Translation Loading**  
+<div align="center">
+    <img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/2.png" width="700" alt="LinguaGenie Loading">
+</div>  
+
+### **Editable Translation Mode**  
+<div align="center">
+    <img src="https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/refs/heads/main/img/3.png" width="700" alt="LinguaGenie Editor Mode">
+</div>  
+
+---
+
+## **🛠️ Installation Guide**  
+
+### **Windows Installation**  
+1. Open **PowerShell** and run:  
+   ```powershell
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/main/INSTALL/install.ps1" -OutFile "$HOME\install.ps1"
    ```
-   https://api.freegpt4.ddns.net/?text={encoded_prompt}
+2. Execute the installer:  
+   ```powershell
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   .\install.ps1
    ```
-4. The response from the API is extracted and returned to `app.js`.
-5. The translated text is displayed in the output box, replacing the loading animation.
-6. The translation is stored in `history.json` in an encrypted format.
-
-## Dependencies
-Install the required Python packages before running the application:
-
-```
-pip install -r requirements.txt
-```
-
-### `requirements.txt` Includes:
-- `requests`: For making API calls.
-- `tkinterweb`: For displaying the HTML interface inside a Python application.
-- `cryptography`: For encrypting translation history.
-- `pyttsx3`: For text-to-speech functionality.
-- `SpeechRecognition`: For speech-to-text input.
-
-## Running the Application
-To start LinguaGenie, execute the following command:
-
-```
-python main.py
-```
-
-## Contribution Guide
-Developers are welcome to contribute by improving the UI, optimizing the API handling, or adding additional language support.
-
-To contribute:
-1. Fork the repository.
-2. Clone your fork:
+3. Once installed, open **LinguaGenie** from the desktop shortcut or run:  
+   ```powershell
+   python main.py
    ```
-   git clone https://github.com/ZAYUVALYA/LinguaGenie.git
-   ```
-3. Create a feature branch:
-   ```
-   git checkout -b feature-new-functionality
-   ```
-4. Commit your changes and push to GitHub.
-5. Open a pull request.
 
-## License
-This project is licensed under the **GNU General Public License v3 (GPLv3)**. This means:
-- You are free to use, modify, and distribute this software.
-- Any modified versions must also be open-source under the same license.
+### **Linux Installation**  
+1. Open **Terminal** and run:  
+   ```bash
+   wget -O "$HOME/install.sh" "https://raw.githubusercontent.com/ZAYUVALYA/LinguaGenie/main/INSTALL/install.sh"
+   ```
+2. Make it executable and run:  
+   ```bash
+   chmod +x "$HOME/install.sh"
+   bash "$HOME/install.sh"
+   ```
+3. Open **LinguaGenie** from the desktop shortcut or run:  
+   ```bash
+   python3 main.py
+   ```
 
-For full details, see the [LICENSE](https://github.com/ZAYUVALYA/LinguaGenie/blob/main/LICENSE) file.
+📌 **For full installation details, visit:** [INSTALL.md](https://github.com/ZAYUVALYA/LinguaGenie/blob/main/INSTALL.md)  
 
+---
+
+## **📜 License**  
+LinguaGenie is an **open-source** project. Contributions are welcome!  
+
+---
+
+## **💖 Support & Donations**  
+If you love **LinguaGenie** and want to support further development, consider donating!  
+
+<div align="center">
+    <a href="http://paypal.me/VIVALDIMAZZA" target="_blank" style='margin-right: 10;'>
+        <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/paypal/default.svg" width="52" height="40" alt="PayPal">
+    </a>
+    <a href="http://lynk.id/milyohiro/s/DaJ072Z" target="_blank" style='margin-left: 10;'>
+        <img src="https://home.oxygen.id/assets/images/info-pembayaran/qris-logo.png" width="64" height="40" alt="LYNK ID QRIS">
+    </a>
+</div>  
+
+🔹 **Follow the project for updates!** 🚀
