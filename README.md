@@ -1,4 +1,3 @@
-### **README.md**  
 
 # **LinguaGenie**  
 <div align="center">
