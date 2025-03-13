@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaGenie - AI Translation App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">LinguaGenie</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#install">Install</a>
+            <a href="#report">Report</a>
+            <a href="#donate">Donate</a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Break Language Barriers with <span style="color: #007bff;">LinguaGenie</span></h1>
+            <p>Translation machine powered by LLM.</p>
+            <div class="cta-buttons">
+                <a href="#install" class="btn btn-primary">Download Now</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About LinguaGenie</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>LinguaGenie uses state-of-the-art neural networks to provide seamless translation between languages.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Real-time voice translation</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Text-to-speech capabilities</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-color);"></i>Offline mode support</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCHi18uXFtRb1_q7pQIVxYlwqvhVzCzZ4PQ&s" alt="AI Translation">
+            </div>
+        </div>
+    </section>
+
+    <section id="install">
+        <h2>Installation Guide</h2>
+        <div class="installation-steps">
+            <!-- Add installation steps here -->
+        </div>
+    </section>
+
+    <section id="report">
+        <h2>Report a Bug</h2>
+        <form>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Describe the issue"></textarea>
+            </div>
+            <button class="btn btn-primary">Submit Report</button>
+        </form>
+    </section>
+
+    <section id="donate">
+        <h2>Support Our Development</h2>
+        <div class="donation-options">
+            <!-- Add donation options here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+        <p>© 2023 LinguaGenie. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
