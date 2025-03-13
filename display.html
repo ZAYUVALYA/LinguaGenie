@@ -6,9 +6,11 @@
   <title>LinguaGenie - Translator</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="core/style.css">
 </head>
 <body>
   <div class="container">
@@ -27,7 +29,7 @@
           </select>
         </div>
         <div class="col-md-2 d-flex align-items-center justify-content-center">
-          <button id="swap-btn" class="btn btn-outline-secondary btn-swap">&harr;</button>
+          <button id="swap-btn" class="btn btn-outline-secondary btn-swap" title="Swap"><i class="fa-solid fa-right-left"></i></button>
         </div>
         <div class="col-md-5">
           <select id="target-lang" class="form-control select-lang">
@@ -38,7 +40,7 @@
           </select>
         </div>
       </div>
-      <!-- Input and output -->
+
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="inputText">Input Text</label>
@@ -46,30 +48,37 @@
         </div>
         <div class="col-md-6 mb-3">
           <label for="outputText">Translated Text</label>
-          <!-- Output text area -->
+
           <textarea id="outputText" class="form-control" rows="8" placeholder="Translation will appear here..." readonly></textarea>
+
+          <div id="outputEdit"></div>
           <!-- Loading Container -->
           <div id="loading" class="loading-container">
             <div class="loading-ball"></div>
             <div class="loading-ball"></div>
             <div class="loading-ball"></div>
           </div>
-          <button id="copy-btn" class="btn btn-sm btn-outline-primary mt-2">Copy</button>
+
+          <button id="copy-btn" class="small-btn btn btn-sm btn-outline-primary mt-2" title="Copy"><i class="fa-solid fa-copy"></i></button>
+          <button id="edit-btn" class="small-btn btn btn-sm btn-outline-secondary mt-2" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button id="save-btn" class="small-btn btn btn-sm btn-outline-success mt-2" title="Save" style="display: none;"><i class="fa-solid fa-square-check"></i></button>
         </div>
       </div>
 
       <div class="row">
         <div class="col text-center">
-          <button id="translate-btn" class="btn btn-primary">Translate</button>
+          <button id="translate-btn" class="btn btn-primary"><i class="fa-solid fa-language"></i> Translate</button>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- jQuery and Bootstrap JS -->
+  <!-- Synonym suggestion box -->
+  <div id="synonym-suggestions"></div>
+  
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script src="app.js"></script>
+  <script src="core/app.js"></script>
 </body>
 </html>
